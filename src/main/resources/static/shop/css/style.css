@@ -1068,7 +1068,7 @@
 /*------------------------------------------------------------------ Instagram Feed -------------------------------------------------------------------*/
  .instagram-box{
      padding: 70px 0px;
-     background: url(../shop/images/ins-bg.jpg) no-repeat center center;
+     background: url(/shop/images/ins-bg.jpg) no-repeat center center;
      background-size: auto auto;
      -webkit-background-size: cover;
      -moz-background-size: cover;
@@ -1336,7 +1336,7 @@
 }
 /*------------------------------------------------------------------ All Pages -------------------------------------------------------------------*/
  .all-title-box{
-     background: url("../shop/images/all-bg-title.jpg") no-repeat center center;
+     background: url("/shop/images/all-bg-title.jpg") no-repeat center center;
      -webkit-background-size: cover;
      -moz-background-size: cover;
      -ms-background-size: cover;
@@ -2334,7 +2334,7 @@
  .price-box-bar{
      margin-bottom: 30px;
 }
- .price-box-bar a{
+ .price-box-bar a, .price-box-bar button {
      padding: 10px 20px;
      font-weight: 700;
      color: #ffffff;

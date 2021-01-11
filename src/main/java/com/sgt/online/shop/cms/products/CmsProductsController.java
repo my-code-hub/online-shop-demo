@@ -11,7 +11,7 @@ import java.util.List;
 import static java.util.Arrays.asList;
 
 @Controller
-public class ProductsController {
+public class CmsProductsController {
 
     @GetMapping("/admin/products")
     public String categories() {
