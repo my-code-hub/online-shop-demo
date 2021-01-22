@@ -88,7 +88,12 @@
 <div class="cart-box-main">
     <div class="container">
         <form method="POST" th:object="${checkoutForm}" class="row">
-
+                <!-- TODO move to a file -->
+                <style>
+                    .invalid-feedback {
+                        display: block !important;
+                    }
+                </style>
                 <div class="col-sm-6 col-lg-6 mb-3">
                     <div class="checkout-address">
                         <div class="title-left">
@@ -101,14 +106,18 @@
                                     <input th:field="${checkoutForm.firstName}"
                                            th:value="${checkoutForm.firstName}"
                                            type="text" class="form-control" id="firstName" placeholder="" value="" required>
-                                    <div class="invalid-feedback"> Valid first name is required. </div>
+                                    <div th:if="${#fields.hasErrors('firstName')}"
+                                         th:errors="*{firstName}"
+                                         class="invalid-feedback"></div>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="lastName">Last name *</label>
                                     <input th:field="${checkoutForm.lastName}"
                                            th:value="${checkoutForm.lastName}" type="text" class="form-control"
                                            id="lastName" placeholder="" value="" required>
-                                    <div class="invalid-feedback"> Valid last name is required. </div>
+                                    <div th:if="${#fields.hasErrors('lastName')}"
+                                         th:errors="*{lastName}"
+                                         class="invalid-feedback"></div>
                                 </div>
                             </div>
                             <div class="mb-3">
@@ -116,14 +125,18 @@
                                 <input th:field="${checkoutForm.email}"
                                        th:value="${checkoutForm.email}"
                                        type="email" class="form-control" id="email" placeholder="">
-                                <div class="invalid-feedback"> Please enter a valid email address for shipping updates. </div>
+                                <div th:if="${#fields.hasErrors('email')}"
+                                     th:errors="*{email}"
+                                     class="invalid-feedback"></div>
                             </div>
                             <div class="mb-3">
                                 <label for="address">Address *</label>
                                 <input th:field="${checkoutForm.address}"
                                        th:value="${checkoutForm.address}"
                                        type="text" class="form-control" id="address" placeholder="" required>
-                                <div class="invalid-feedback"> Please enter your shipping address. </div>
+                                <div th:if="${#fields.hasErrors('address')}"
+                                     th:errors="*{address}"
+                                     class="invalid-feedback"></div>
                             </div>
                             <div class="row">
                                 <div class="col-md-3 mb-3">
@@ -131,7 +144,9 @@
                                     <input th:field="${checkoutForm.zip}"
                                            th:value="${checkoutForm.zip}"
                                            type="text" class="form-control" id="zip" placeholder="" required>
-                                    <div class="invalid-feedback"> Zip code required. </div>
+                                    <div th:if="${#fields.hasErrors('zip')}"
+                                         th:errors="*{zip}"
+                                         class="invalid-feedback"></div>
                                 </div>
                             </div>
                             <hr class="mb-4">

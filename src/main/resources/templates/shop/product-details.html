@@ -127,14 +127,19 @@
                         <p>Nam sagittis a augue eget scelerisque. Nullam lacinia consectetur sagittis. Nam sed neque id eros fermentum dignissim quis at tortor. Nullam ultricies urna quis sem sagittis pharetra. Nam erat turpis, cursus in ipsum at,
                             tempor imperdiet metus. In interdum id nulla tristique accumsan. Ut semper in quam nec pretium. Donec egestas finibus suscipit. Curabitur tincidunt convallis arcu. </p>
 
-                        <form method="POST" th:object="${productForm}">
+                        <form method="POST" th:object="${addProductToCartForm}">
                             <ul>
                                 <li>
-                                    <div class="form-group quantity-box">
-                                        <label class="control-label">Quantity</label>
-                                        <input th:field="${productForm.quantity}"
-                                               th:value="${productForm.quantity}"
-                                               class="form-control" min="0" max="20" type="number">
+                                    <div class="form-group quantity-box" style="margin-bottom: 0.7rem;">
+                                        <label class="control-label"
+                                               th:classappend="${#fields.hasErrors('quantity')} ? text-danger : ''">Quantity</label>
+                                        <input th:field="${addProductToCartForm.quantity}"
+                                               th:value="${addProductToCartForm.quantity}"
+                                               class="form-control" min="1" type="number"
+                                               th:classappend="${#fields.hasErrors('quantity')} ? is-invalid : ''">
+                                        <div th:if="${#fields.hasErrors('quantity')}"
+                                             th:errors="*{quantity}"
+                                             th:classappend="${#fields.hasErrors('quantity')} ? text-danger : ''"></div>
                                     </div>
                                 </li>
                             </ul>

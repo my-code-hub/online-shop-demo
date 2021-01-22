@@ -1,11 +1,32 @@
 package com.sgt.online.shop.front.checkout;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+import static com.sgt.online.shop.regex.RegexConstants.EMAIL_PATTERN;
+
 public class CheckoutForm {
 
+    @Size(min = 3, max = 20)
+    @NotBlank
     private String firstName;
+
+    @Size(min = 4, max = 20)
+    @NotBlank
     private String lastName;
+
+    @Size(min = 5, max = 30)
+    @NotBlank
+    @Pattern(regexp = EMAIL_PATTERN, message = "Incorrect format")
     private String email;
+
+    @NotBlank
+    @Size(min = 4, max = 100)
     private String address;
+
+    @NotBlank
+    @Size(min = 3, max = 20)
     private String zip;
 
     public String getFirstName() {
@@ -54,6 +75,7 @@ public class CheckoutForm {
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", address='" + address + '\'' +
+                ", address='" + email + '\'' +
                 ", zip='" + zip + '\'' +
                 '}';
     }

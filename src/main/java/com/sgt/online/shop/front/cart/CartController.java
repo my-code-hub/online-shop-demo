@@ -1,4 +1,4 @@
-package com.sgt.online.shop.front;
+package com.sgt.online.shop.front.cart;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
